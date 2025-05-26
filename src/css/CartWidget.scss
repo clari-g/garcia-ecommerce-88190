@@ -1,0 +1,18 @@
+.cartWidget{
+    display: flex;
+    width: auto;
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: #5727b0 !important;
+    border-color: #5727b0 !important;
+    box-shadow: 2px 2px 2px #35139c;
+
+    .cartIcon{
+        font-size: 20px;
+    }
+    .badge{
+        margin-left: 5px;
+    }
+}
