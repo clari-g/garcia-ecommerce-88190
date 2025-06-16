@@ -2,7 +2,9 @@
 
 /* make the customizations */
 $theme-colors: (
-  'primary': #9C27B0
+  'primary': #9C27B0,
+  'success': #28a745,
+  'danger': #dc3545
 );
 
 /* import bootstrap to set changes */
