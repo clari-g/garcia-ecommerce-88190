@@ -1,8 +1,12 @@
 # 🎶 Music Shop App
 
-Proyecto e-commerce para el curso React JS de Coderhouse.
+Proyecto e-commerce para el curso React JS de **Coderhouse**.<br>
+Elegí hacer una tienda online del rubro de insumos musicales y audio.
 
 ![image](/public/sample.png)
+
+### Demo
+[https://garcia-ecommerce-88190.vercel.app/](https://garcia-ecommerce-88190.vercel.app/)
 
 ## Instalación
 
