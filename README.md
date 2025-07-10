@@ -1,12 +1,38 @@
-# React + Vite
+# 🎶 Music Shop App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto e-commerce para el curso React JS de Coderhouse.
 
-Currently, two official plugins are available:
+![image](/public/sample.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
 
-## Expanding the ESLint configuration
+Clona el proyecto y muevete a su carpeta
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+  git clone https://github.com/clari-g/garcia-ecommerce-88190.git
+
+  cd garcia-ecommerce-88190
+```
+
+
+Instala las dependencias
+
+```bash
+  npm install
+```
+
+Inicia el servidor local
+
+```bash
+  npm run dev
+```
+
+## Librerias utilizadas
+- [React Icons](https://react-icons.github.io/react-icons/): para los iconos.
+- [React Bootstrap](https://react-bootstrap.netlify.app/): estilos generales de la app.
+- [Sweetalert2](https://sweetalert2.github.io/): implementación de alerts y toasts.
+- [React Router Dom](https://reactrouter.com/): navegación por rutas.
+- [Firebase](https://firebase.google.com/): utilizada como base de datos.
+
+
+#### Desarrollado por Clara Garcia

@@ -10,11 +10,11 @@ const NavBar = () => {
   return (
     <Navbar bg="primary" data-bs-theme="dark">
         <Container>
-            <Navbar.Brand as={Link} to={'/'}><GiMusicalNotes /> MusicShop</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to={'/category/audio'}>Audio</Nav.Link>
-              <Nav.Link as={Link} to={'/category/instrumentos'}>Instrumentos</Nav.Link>
-              <Nav.Link as={Link} to={'/category/accesorios'}>Accesorios</Nav.Link>
+            <Nav className="me-auto" defaultActiveKey="/" style={{alignItems: 'center'}}>
+              <Nav.Link as={Link} to={'/'} eventKey="/"><Navbar.Brand><GiMusicalNotes /> MusicShop</Navbar.Brand></Nav.Link>
+              <Nav.Link as={Link} to={'/category/audio'} eventKey="audio">Audio</Nav.Link>
+              <Nav.Link as={Link} to={'/category/instrumentos'} eventKey="instrumentos">Instrumentos</Nav.Link>
+              <Nav.Link as={Link} to={'/category/accesorios'} eventKey="accesorios">Accesorios</Nav.Link>
             </Nav>
             <CartWidget />
         </Container>

@@ -1,11 +1,23 @@
 import ItemCount from './ItemCount';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import '../css/ItemDetail.scss';
+import { useContext, useEffect, useState } from 'react';
+import { CartContext } from '../context/CartContext';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({detail}) => {
+  const [purchase, setPurchase] = useState(false);
+  const [itemStock, setItemStock] = useState(detail.stock);
+
+  const {addItem, localStock} = useContext(CartContext);
+
+  useEffect(()=>{
+    setItemStock(localStock(detail));
+  },[purchase]);
 
   const onAdd = (cantidad) => {
-    alert(`${cantidad} agregado/s al carrito!`);
+    addItem(detail, cantidad);
+    setPurchase(true);
   }
   
   return (
@@ -18,8 +30,21 @@ const ItemDetail = ({detail}) => {
           <h2>{detail.name}</h2>
           <p>{detail.description}</p>
           <p>Precio: <b>${detail.price},00</b></p>
-          <p>Stock disponible: {detail.stock}</p>
-          <ItemCount stock={detail.stock} onAdd={onAdd}/>
+          { itemStock
+            ? <p>Stock disponible: {itemStock}</p>
+            : <p className='text-danger'>Sin Stock</p>
+          }
+
+          { purchase 
+            ? (
+                <div className='itemOptions'>
+                <Button variant="primary" size='lg' as={Link} to={'/cart'}>Ir al carrito</Button>
+                <Button variant="primary" size='lg' as={Link} to={'/'}>Seguir comprando</Button>
+                </div>
+              )
+            : <ItemCount stock={itemStock} onAdd={onAdd}/>
+          }
+          
         </Col>
       </Row>
     </Container>

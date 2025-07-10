@@ -1,32 +1,41 @@
 import { useEffect, useState } from 'react'
-import { getOneProduct } from '../mock/AsyncMock'
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom';
-import Spinner from 'react-bootstrap/Spinner'
+import LoaderComponent from './LoaderComponent';
+import { collection, getDoc, doc } from "firebase/firestore"
+import { db } from "../service/firebase"
+import ItemEmpty from './ItemEmpty';
 
 const ItemDetailContainer = () => {
   const [detail, setDetail] = useState({});
   const [loading, setLoading]= useState(true);
+  const [invalid, setInvalid]= useState(false);
   const {id} = useParams();
-
+ 
   useEffect(()=>{
     setLoading(true);
-    getOneProduct(id)
-    .then((res)=> setDetail(res))
+    const productsCollection = collection(db, 'products');
+    const docRef = doc(productsCollection, id)
+    getDoc(docRef)
+    .then((res)=>{
+      if(res.data()){
+        setDetail({id:res.id, ...res.data()});
+      }else{
+        setInvalid(true);
+      }
+    })
     .catch((error)=> console.log(error))
     .finally(()=>setLoading(false))
   },[id]);
+
+  if(invalid){
+    return <ItemEmpty />
+  }
   
   return (
     <>
     { loading
-      ? (
-          <div className="text-center" style={{padding: 50}}>
-            <Spinner animation="border" role="status" size="">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-          </div>
-        )
+      ? <LoaderComponent />
       : <ItemDetail detail={detail}/>
     }
     </>
